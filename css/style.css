@@ -1,74 +1,108 @@
-/*Estilo Geral*/
-* {
-    padding: 0;
+/* Geral */
+*{
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family:  "Atkinson Hyperlegible Mono", serif;
+    font-family: "Atkinson Hyperlegible Mono", serif;
 }
-body {
+body{
     background-color: black;
     height: 100vh;
+}
+.interface{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.flex{
+    display: flex;
+}
+.btn-contato button{
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #d39f9a;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #fff;
+    transition: .2s;
 }
 h2.titulo{
     color: #fff;
     font-size: 38px;
     text-align: center;
 }
-h2.titulo span {
-    color: #ca8985;
+h2.titulo span{
+    color: #d39f9a;
 }
-.btn-contato button {
-    padding: 10px 40px;
-    font-size: 18px;
-    font-weight: 600;
-    background-color: #ca8985; 
-    border: 0;
-    border-radius: 30px;;
-    cursor: pointer;
+button:hover{
+    box-shadow: 0px 0px 8px #d39f9a;
+    transform: scale(1.05);
+}
+/* Estilo Cabecalho */
+header{
+    padding: 40px 4%;
+}
+header > .interface{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header a{
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
     transition: .2s;
 }
-button:hover {
-    box-shadow: 0px 0px 10px #ca8985;
-    transform: scale(1.05);
-}
-header a {
-    color: #fff;
-    text-decoration: none8985;
-    transform: scale(1.05);
-}
 header a:hover{
-    color: #ca8985;
+    color: #d39f9a;
+    transform: scale(1.05);
 }
-.logo a:hover{
-    color: #ca8985;
+header nav ul{
+     list-style-type: none;
 }
-.topo-do-site h1 {
-    font-size: 42px;
+header nav ul li{
+    display: inline-block;
+    padding: 0 40px;
+}
+/*Estilo topo do site*/
+section.topo-do-site{
+    padding: 40px 4%;
+}
+section.topo-do-site .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+.topo-do-site h1{
+    color: #fff;
+    font-size: 38px;
     line-height: 40px;
 }
-.topo-do-site h1 span {
-    color: #ca8985;
+.topo-do-site .txt-topo-site h1 span{
+    color: #d39f9a;
 }
-.topo-do-site p {
+.topo-do-site .txt-topo-site p{
+    color: #fff;
     margin: 40px 0;
 }
-.topo-do-site .img-topo-site img {
+.topo-do-site .img-topo-site img{
     position: relative;
     animation: flutuar 2s ease-in-out infinite alternate;
 }
-@keyframes flutuar {
-    0% {
+@keyframes flutuar{
+    0%{
         top: 0;
     }
-    100% {
+    100%{
         top: 30px;
     }
 }
-/* Estilo Especialidades*/
-section.especialidades {
-   padding: 40px 4%;
+/*Estilo Especialidades*/
+section.especialidades{
+    padding: 40px 4%;
 }
-section.especialidades .d-flex{
+section.especialidades .flex{
     gap: 60px;
 }
 .especialidades .especialidades-box{
@@ -79,24 +113,24 @@ section.especialidades .d-flex{
     transition: .2s;
 }
 .especialidades .especialidades-box:hover{
+    box-shadow: 0px 0px 8px #d39f9a80;
     transform: scale(1.05);
-    box-shadow: 0px 0px 20px #ca888571;
 }
 .especialidades .especialidades-box i{
     font-size: 70px;
-    color: #ca8985;
+    color: #d39f9a;
 }
 .especialidades .especialidades-box h3{
     font-size: 28px;
-    margin: 15px 0 ;
+    margin: 15px 0;
 }
-/*Sobre*/
-section.sobre {
+/*Estilo do sobre*/
+section.sobre{
     padding: 80px 4%;
 }
-section .sobre .d-flex {
-    gap: 60px;
+section.sobre .flex{
     align-items: center;
+    gap: 60px;
 }
 .sobre .txt-sobre{
     color: #fff;
@@ -107,7 +141,7 @@ section .sobre .d-flex {
     margin-bottom: 30px;
 }
 .sobre .txt-sobre h2 span{
-    color: #ca8985;
+    color: #d39f9a;
     display: block;
 }
 .sobre .txt-sobre p{
@@ -118,9 +152,51 @@ section .sobre .d-flex {
     height: 60px;
     border-radius: 50%;
     border: none;
-    background-color: #ca8985;
+    background-color: #d39f9a;
     font-size: 22px;
     cursor: pointer;
-    margin: 0 5px;
+    margin: 0 2px;
     transition: .2s;
 }
+/* Estilo do portfolio
+section.portfolio{
+    padding: 80px 4%;
+    box-shadow: 0px 0px 40px 10px #ffffff0e;
+}
+section.portfolio .flex{
+    justify-content: space-around;
+    margin-top: 60px;
+}
+.img-port{
+    width: 360px;
+    height: 460px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 8s;
+    cursor: pointer;
+    border-radius: 40px;
+    position: relative;
+}
+.img-port:hover{
+    background-position: 100% 100%;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000b8;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+    transition: .5s;
+}
+.overlay:hover{
+    opacity: 1;
+}*/

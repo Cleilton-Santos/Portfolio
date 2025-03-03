@@ -1,100 +1,105 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <title>Meu Portfolio</title>
 </head>
 <body>
-    <header class="py-4">
-        <div class="container d-flex justify-content-between align-items-center">
+    <header>
+        <div class="interface">
             <div class="logo">
-                <a href="index.html" class="text-decoration-none text-dark">Cleilton</a>
-            </div>
-            <nav class="d-none d-md-block" >
-                <ul class="nav">
-                    <li class="nav-item"><a href="#sobre" class="nav-link text-dark">Sobre</a></li>
-                    <li class="nav-item"><a href="#servicos" class="nav-link text-dark">Serviços</a></li>
-                    <li class="nav-item"><a href="#portfolio" class="nav-link text-dark">Portfolio</a></li>
-                    <li class="nav-item"><a href="#contato" class="nav-link text-dark">Contato</a></li>
+                <a>
+                    <img src="./img/Cleilton Santos.png" alt="logo">
+                </a>
+            </div><!-- Logo -->
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Especialidades</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Projetos</a></li>
                 </ul>
-            </nav>
-            <div class="btn-contato">
-                <a href="#contato"><button class="btn text-white">Contato</button></a>
-            </div>
-        </div>
+                <div class="btn-contato">
+                    <a href="#"><button>Contato</button></a>
+                </div>
+        </div><!-- Interface -->
     </header>
     <main>
-        <section class="topo-do-site py-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h1 class="text-white">Transformando Ideias em Realidade Digital<span>.</span></h1>
-                        <p class="text-white">Bem-vindo ao meu portfólio! Aqui você encontrará informações sobre meus serviços, especialidades e como entrar em contato comigo.</p>
-                        <div class="btn-contato"><a href="#contato"><button class="btn text-white">Entre em Contato</button></a></div>
-                    </div>
-                    <div class="col-md-6 img-topo-site">
-                        <img src="./img/eu.png" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container especialidades">
-            <h2 class="titulo">Minhas <span>Especialidades.</span></h2>
-            <div class="row align-items-center">
-                <div class="row d-md-flex justify-content-around">
-                    <div class="col especialidades-box">
-                        <i class="bi bi-github"></i>
-                        <h3>Git</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sunt.</p>
-                    </div>
-                    <div class="col especialidades-box">
-                        <i class="bi bi-filetype-html"></i>
-                        <h3>HTML</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sunt.</p>
-                    </div>
-                    <div class="col especialidades-box">
-                        <i class="bi bi-filetype-css"></i>
-                        <h3>CSS</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sunt.</p>
-                    </div>
-                    <div class="col especialidades-box">
-                        <i class="bi bi-filetype-json"></i>
-                        <h3>JavaScript</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sunt.</p>
+        <section class="topo-do-site">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site">
+                        <h1>Transformando Ideias em Realidade Digital<span>.</span></h1>
+                        <p>Bem-vindo ao meu portfólio! Aqui você encontrará informações sobre meus serviços, especialidades e como entrar em contato comigo.</p>
+                        <div class="btn-contato">
+                            <a href="#"><button>Entre em Contato</button></a>
+                        </div>
+                    </div><!-- txt topo do site-->
+                    <div class="img-topo-site">
+                        <img src="./img/eu.png" alt="pessoa">
                     </div>
                 </div>
+            </div><!-- Interface -->
+        </section><!-- topo do site -->
+        <section class="especialidades">
+            <div class="interface">
+                <h2 class="titulo">Minhas <span>Especialidades.</span></h2>
+                <div class="flex">
+                    <div class="especialidades-box">
+                        <i class="bi bi-code-square"></i>
+                        <h3>Desenvolvimento Web</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, nobis!</p>
+                    </div>
+                    <div class="especialidades-box">
+                        <i class="bi bi-android"></i>
+                        <h3>Desenvolvimento Mobile</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, nobis!</p>
+                    </div>
+                </div><!-- flex -->
             </div>
-        </section>
-        <section class="container sobre">
-            <div class="row">
-                <div class="d-flex">
+        </section><!--Especialidades -->
+        <section class="sobre">
+            <div class="interface">
+                <div class="flex">
+                    <div class="img-sobre">
+                        <img src="./img/EuBack2.png" alt="minha imagem">
+                    </div>
                     <div class="txt-sobre">
-                        <h2>Muito prazer, <span>sou Cleilton Santos.</span></h2>
-                        <p>Estou iniciando uma nova jornada em minha carreira como desenvolvedor. Atualmente estou cursando Análise e Desenvolvimento de Sistemas pela Descomplica Faculdade Digital.
-
-                            Meu objetivo é mudar de carreira e me tornar um desenvolvedor. Estou empenhado em adquirir as habilidades e conhecimentos necessários para isso. Tenho um forte desejo de resolver problemas através da tecnologia e estou animado para enfrentar os desafios desta nova jornada profissional.
-                            
-                            Atualmente, estou aprimorando minhas habilidades em diversas linguagens de programação incluindo Java, Kotlin, HTML, CSS e JavaScript. Essas competências me permitem desenvolver soluções eficientes tanto para back-end quanto para front-end. Estou entusiasmado para contribuir com projetos inovadores e colaborar com equipes dinâmicas no setor de tecnologia</p>
-                            <div class="btn-social">
-                                <a href="https://www.instagram.com/cleilton.santos.50/" target="_blank"><button><i class="bi bi-instagram"></i></button></https:>
-                                <a href="https://github.com/Cleilton-Santos" target="_blank"><button><i class="bi bi-github"></i></button></a>
-                                <a href="https://www.linkedin.com/in/cleilton-santos-441373155/" target="_blank"><button><i class="bi bi-linkedin"></i></button></a>
-                                <a href="https://wa.me/5579999130957?text=Olá%20Tudo%20bem!,%20como%20posso%20te%20ajudar." target="_blank"><button><i class="bi bi-whatsapp"></i></button></a>  
-                            </div>
+                        <h2>Muito Prazer, <span>sou Cleilton Santos</span></h2>
+                        <p>Estou iniciando uma nova jornada em minha carreira como desenvolvedor. Atualmente estou cursando Análise e Desenvolvimento de Sistemas pela Descomplica Faculdade Digital. Meu objetivo é mudar de carreira e me tornar um desenvolvedor. Estou empenhado em adquirir as habilidades e conhecimentos necessários para isso. Tenho um forte desejo de resolver problemas através da tecnologia e estou animado para enfrentar os desafios desta nova jornada profissional. Atualmente, estou aprimorando minhas habilidades em diversas linguagens de programação incluindo Java, Kotlin, HTML, CSS e JavaScript. Essas competências me permitem desenvolver soluções eficientes tanto para back-end quanto para front-end. Estou entusiasmado para contribuir com projetos inovadores e colaborar com equipes dinâmicas no setor de tecnologia.</p>
+                        <div class="btn-social">
+                            <a href="https://wa.me/5579999130957" target="_blank"><button><i class="bi bi-whatsapp"></i></button></a>
+                            <a href="https://www.instagram.com/cleilton.santos.50/" target="_blank"><button><i class="bi bi-instagram"></i></button></a>
+                            <a href="https://www.linkedin.com/in/cleilton-santos-441373155/" target="_blank"><button><i class="bi bi-linkedin"></i></button></a>
+                            <a href="https://github.com/Cleilton-Santos" target="_blank"><button><i class="bi bi-github"></i></button></a>
+                            <a href="mailto:cleilton14s@gmail.com" target="_blank"><button><i class="bi bi-envelope-at"></i></button></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section><!--sobre-->
+        <!--<section class="portfolio">
+            <div class="interface">
+                <h2 class="titulo">Meus <span>Projetos.</span></h2>
+                <div class="flex">
+                    <div class="img-port" style="background-image: url(img/EuBack.png);">
+                        <div class="overlay">Projeto1</div>
+                    </div>
+                    <div class="img-port" style="background-image: url(img/EuBack.png);">
+                        <div class="overlay">Projeto2</div>
+                    </div>
+                    <div class="img-port" style="background-image: url(img/EuBack.png);">
+                        <div class="overlay">Projeto3</div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
     </main>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
