@@ -15,7 +15,7 @@
     <header>
         <div class="interface">
             <div class="logo">
-                <a>
+                <a href="#inicio">
                     <img src="./img/Cleilton Santos.png" alt="logo">
                 </a>
             </div><!-- Logo -->
@@ -129,11 +129,11 @@
         <section class="formulario" id="contato">
             <div class="interface">
                 <h2 class="titulo">Fala <span>Comigo.</span></h2>
-                <form action="">
-                    <input type="text" name="" id="" placeholder="Seu nome:" required>
-                    <input type="text" name="" id="" placeholder="Seu email:" required>
-                    <input type="text" name="" id="" placeholder="Seu celular:">
-                    <textarea name="" id="" placeholder="Sua mensagem:" required></textarea>
+                <form action="" id="form-contato">
+                    <input type="text" name="nome" id="nome" placeholder="Seu nome:" required minlength="3" maxlength="50">
+                    <input type="email" name="email" id="email" placeholder="Seu email:" required>
+                    <input type="tel" name="celular" id="celular" placeholder="Seu celular:" pattern="[0-9]{11}" title="Digite um número de celular válido (11 dígitos)">
+                    <textarea name="mensagem" id="" placeholder="Sua mensagem:" required minlength="10" maxlength="500"></textarea>
                     <div class="btn-enviar">
                         <input type="submit" value="Enviar">
                     </div>

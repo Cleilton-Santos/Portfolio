@@ -1,3 +1,36 @@
+document.getElementById('form-contato').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const celular = document.getElementById('celular').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    // Validação do nome
+    if (nome.length < 3 || nome.length > 50) {
+        alert('O nome deve ter entre 3 e 50 caracteres.');
+        return;
+    }
+    // Validação do email
+    if (!email.includes('@') || !email.includes('.')) {
+        alert('Por favor, insira um email válido.');
+        return;
+    }
+    // Validação do celular (opcional)
+    if (celular && !/^\d{11}$/.test(celular)) {
+        alert('Por favor, insira um número de celular válido (11 dígitos).');
+        return;
+    }
+    // Validação da mensagem
+    if (mensagem.length < 10 || mensagem.length > 500) {
+        alert('A mensagem deve ter entre 10 e 500 caracteres.');
+        return;
+    }
+    // Se todas as validações passarem, você pode enviar o formulário
+    alert('Formulário enviado com sucesso!');
+    // Aqui você pode adicionar o código para enviar os dados para o servidor
+});
+
 const btnMenu = document.getElementById('btn-menu');
 const menu = document.getElementById('menu-mobile');
 const overlay = document.getElementById('overlay-menu');
