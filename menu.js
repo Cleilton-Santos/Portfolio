@@ -49,12 +49,12 @@ if (btnMenu && menu && overlay) {
   overlay.addEventListener('click', closeMenu);
 }
 
-if (enviarForm) {
+/*if (enviarForm) {
   enviarForm.addEventListener('click', function(event) {
     event.preventDefault();
     alert('Formulario Enviado!');
   });
-}
+}*/
 
 // Função para rolagem suave com duração personalizada
 function scrollToSection(targetId, duration = 1000) {
