@@ -19,37 +19,12 @@ app.post('/submit', (req, res) => {
         return res.status(400).send('Nome inválido.');
     }
 
-<<<<<<< HEAD
 /*if (enviarForm) {
   enviarForm.addEventListener('click', function(event) {
     event.preventDefault();
     alert('Formulario Enviado!');
   });
 }*/
-=======
-    // Validação do email
-    if (!email || !email.includes('@') || !email.includes('.')) {
-        return res.status(400).send('Email inválido.');
-    }
-
-    // Validação do celular (opcional)
-    if (celular && !/^\d{11}$/.test(celular)) {
-        return res.status(400).send('Número de celular inválido.');
-    }
-
-    // Validação da mensagem
-    if (!mensagem || mensagem.length < 10 || mensagem.length > 500) {
-        return res.status(400).send('Mensagem inválida.');
-    }
-
-    // Se tudo estiver válido, processe os dados
-    res.send('Formulário enviado com sucesso!');
-});
-
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
-});
->>>>>>> cf9f36ad4bc279e27d48229c274c1895a43a85e8
 
 // Função para rolagem suave com duração personalizada
 function scrollToSection(targetId, duration = 1000) {
