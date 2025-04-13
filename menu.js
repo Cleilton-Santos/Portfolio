@@ -1,139 +1,128 @@
+// Elementos do menu mobile
 const btnMenu = document.getElementById('btn-menu');
-const menu = document.getElementById('menu-mobile');
-const overlay = document.getElementById('overlay-menu');
-const nome = document.getElementById('nome').value;
-const email = document.getElementById('email').value;
-const celular = document.getElementById('celular').value;
-const mensagem = document.getElementById('mensagem').value;
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
+const menuMobile = document.getElementById('menu-mobile');
+const overlayMenu = document.getElementById('overlay-menu');
+const btnFechar = menuMobile.querySelector('.btn-fechar');
 
-app.use(bodyParser.urlencoded({ extended: true }));
+// Função para abrir/fechar menu mobile
+function toggleMenu() {
+    menuMobile.classList.toggle('abrir-menu');
+    overlayMenu.style.display = menuMobile.classList.contains('abrir-menu') ? 'block' : 'none';
+}
 
-app.post('/submit', (req, res) => {
-    const { nome, email, celular, mensagem } = req.body;
+// Event listeners para o menu
+btnMenu.addEventListener('click', toggleMenu);
+btnFechar.addEventListener('click', toggleMenu);
+overlayMenu.addEventListener('click', toggleMenu);
 
-    // Validação do nome
-    if (!nome || nome.length < 3 || nome.length > 50) {
-        return res.status(400).send('Nome inválido.');
-    }
-
-/*if (enviarForm) {
-  enviarForm.addEventListener('click', function(event) {
-    event.preventDefault();
-    alert('Formulario Enviado!');
-  });
-}*/
-
-// Função para rolagem suave com duração personalizada
+// Função para rolagem suave
 function scrollToSection(targetId, duration = 1000) {
-  const targetSection = document.getElementById(targetId);
-  if (!targetSection) return;
+    const targetSection = document.getElementById(targetId);
+    if (!targetSection) return;
 
-  const targetPosition = targetSection.offsetTop; // Posição do topo da seção
-  const startPosition = window.pageYOffset; // Posição atual da rolagem
-  const distance = targetPosition - startPosition; // Distância a percorrer
-  let startTime = null;
+    const targetPosition = targetSection.offsetTop;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
 
-  // Função de animação
-  function animation(currentTime) {
-    if (startTime === null) startTime = currentTime;
-    const timeElapsed = currentTime - startTime;
-    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-    window.scrollTo(0, run);
-    if (timeElapsed < duration) requestAnimationFrame(animation);
-  }
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
 
-  // Função de easing para suavizar a rolagem
-  function easeInOutQuad(t, b, c, d) {
-    t /= d / 2;
-    if (t < 1) return (c / 2) * t * t + b;
-    t--;
-    return (-c / 2) * (t * (t - 2) - 1) + b;
-  }
+    function easeInOutQuad(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+    }
 
-  requestAnimationFrame(animation);
+    requestAnimationFrame(animation);
 }
 
-// Adicionar evento de clique aos links do menu
+// Adiciona rolagem suave aos links do menu
 document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault(); // Evita o comportamento padrão do link
-    const targetId = link.getAttribute('href').substring(1); // Remove o '#' do href
-    scrollToSection(targetId, 1500); // Duração de 1500ms (1.5 segundos)
-  });
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        scrollToSection(targetId, 1500);
+        
+        // Fecha o menu mobile se estiver aberto
+        if (menuMobile.classList.contains('abrir-menu')) {
+            toggleMenu();
+        }
+    });
 });
 
-document.getElementById('form-contato').addEventListener('submit', function(event) {
-  event.preventDefault();
-
+// Validação do formulário de contato
+document.getElementById('form-contato').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Limpa erros anteriores
+    document.querySelectorAll('.erro').forEach(erro => erro.remove());
+    
+    // Obtém os campos do formulário
+    const nome = document.getElementById('nome');
+    const email = document.getElementById('email');
+    const celular = document.getElementById('celular');
+    const mensagem = document.getElementById('mensagem');
+    
+    let valido = true;
+    
     // Validação do nome
-    if (nome.length < 3 || nome.length > 50) {
-        alert('O nome deve ter entre 3 e 50 caracteres.');
-        return;
+    if (nome.value.length < 3 || nome.value.length > 50) {
+        mostrarErro(nome, 'O nome deve ter entre 3 e 50 caracteres.');
+        valido = false;
     }
+    
     // Validação do email
-    if (!email.includes('@') || !email.includes('.')) {
-        alert('Por favor, insira um email válido.');
-        return;
+    if (!email.value.includes('@') || !email.value.includes('.')) {
+        mostrarErro(email, 'Por favor, insira um email válido.');
+        valido = false;
     }
+    
     // Validação do celular (opcional)
-    if (celular && !/^\d{11}$/.test(celular)) {
-        alert('Por favor, insira um número de celular válido (11 dígitos).');
-        return;
+    if (celular.value && !/^\d{11}$/.test(celular.value)) {
+        mostrarErro(celular, 'Por favor, insira um número de celular válido (11 dígitos).');
+        valido = false;
     }
+    
     // Validação da mensagem
-    if (mensagem.length < 10 || mensagem.length > 500) {
-        alert('A mensagem deve ter entre 10 e 500 caracteres.');
-        return;
+    if (mensagem.value.length < 10 || mensagem.value.length > 500) {
+        mostrarErro(mensagem, 'A mensagem deve ter entre 10 e 500 caracteres.');
+        valido = false;
     }
-    // Se todas as validações passarem, você pode enviar o formulário
-    alert('Formulário enviado com sucesso!');
-    // Aqui você pode adicionar o código para enviar os dados para o servidor
+    
+    // Se todas as validações passarem
+    if (valido) {
+        enviarFormulario({
+            nome: nome.value,
+            email: email.value,
+            celular: celular.value,
+            mensagem: mensagem.value
+        });
+    }
 });
+
+// Função para mostrar mensagens de erro
 function mostrarErro(campo, mensagem) {
-  const erro = document.createElement('div');
-  erro.className = 'erro';
-  erro.textContent = mensagem;
-  campo.parentNode.insertBefore(erro, campo.nextSibling);
+    const erro = document.createElement('div');
+    erro.className = 'erro';
+    erro.textContent = mensagem;
+    campo.parentNode.insertBefore(erro, campo.nextSibling);
 }
 
-document.getElementById('meuForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  // Limpa erros anteriores
-  document.querySelectorAll('.erro').forEach(erro => erro.remove());
-
-  const nome = document.getElementById('nome');
-  const email = document.getElementById('email');
-  const celular = document.getElementById('celular');
-  const mensagem = document.getElementById('mensagem');
-
-  let valido = true;
-
-  if (nome.value.length < 3 || nome.value.length > 50) {
-      mostrarErro(nome, 'O nome deve ter entre 3 e 50 caracteres.');
-      valido = false;
-  }
-
-  if (!email.value.includes('@') || !email.value.includes('.')) {
-      mostrarErro(email, 'Por favor, insira um email válido.');
-      valido = false;
-  }
-
-  if (celular.value && !/^\d{11}$/.test(celular.value)) {
-      mostrarErro(celular, 'Por favor, insira um número de celular válido (11 dígitos).');
-      valido = false;
-  }
-
-  if (mensagem.value.length < 10 || mensagem.value.length > 500) {
-      mostrarErro(mensagem, 'A mensagem deve ter entre 10 e 500 caracteres.');
-      valido = false;
-  }
-
-  if (valido) {
-      alert('Formulário enviado com sucesso!');
-      // Aqui você pode enviar os dados para o servidor
-  }
-});
+// Função para enviar o formulário
+function enviarFormulario(dados) {
+    // Exemplo usando mailto como fallback
+    const subject = `Contato de ${dados.nome}`;
+    const body = `Email: ${dados.email}%0D%0ACelular: ${dados.celular}%0D%0A%0D%0AMensagem:%0D%0A${dados.mensagem}`;
+    window.location.href = `mailto:cleilton14s@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Feedback para o usuário
+    alert('Formulário enviado com sucesso!');
+    document.getElementById('form-contato').reset();
+}
